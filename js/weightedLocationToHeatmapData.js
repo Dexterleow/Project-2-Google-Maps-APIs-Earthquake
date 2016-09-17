@@ -1,3 +1,4 @@
+console.log("Javascript,are you there?");
 
   var map;
 
@@ -11,13 +12,16 @@
     map = new google.maps.Map(document.getElementById('map'),
           mapOptions);
 
-    // Create a <script> tag and set the USGS URL as the source.
-    var script = document.createElement('script');
 
-    // (In this example we use a locally stored copy instead.)
-    // script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
-    script.src = 'https://developers.google.com/maps/documentation/javascript/tutorials/js/earthquake_GeoJSONP.js';
+// Create a <script> tag and set the USGS URL as the source.
+    var script = document.createElement('script');
+//M2.5_Earthquake in the past 7 days.
+    script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
     document.getElementsByTagName('head')[0].appendChild(script);
+
+    function eqfeed_callback(response) {
+      map.data.addGeoJson(response); // addGeoJson() method to place the parsed GeoJSON data on the map.
+    }
 
   }
 
