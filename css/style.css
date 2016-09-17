@@ -23,3 +23,43 @@ font-size: 30px;
   /*width: 200px;*/
   /*float: right;*/
 }
+
+#title {
+font-size: 34px;
+}
+
+#sign-in {
+font-size: 20px;
+float:right;
+}
+
+#login-box {
+  font-size: 20px;
+  float:right;
+}
+
+ul {
+    list-style-type: none;
+    margin: 10px;
+    padding: 0;
+    overflow: hidden;
+    height: 50px;
+    background-color: yellow;
+}
+
+li {
+    float: left;
+}
+
+li a {
+    /*display: inline;*/
+    color: black;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    background-color: red;
+}
+
+li a:hover {
+    background-color: #111;
+}
