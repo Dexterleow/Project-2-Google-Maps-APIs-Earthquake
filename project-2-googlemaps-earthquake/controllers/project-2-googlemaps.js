@@ -2,13 +2,21 @@ var express = require('express');
 var db = require('./../models');
 var router = express.Router();
 //
-router.get('/', function(req, res) {
-  db.project-2-googlemaps.findAll().then(function(tacos) {
-    res.render('project-2-googlemaps/index', {tacos: tacos});
-  }).catch(function(err) {
-    res.status(500).render('error');
-  });
+
+
+router.get('/signup', function(req, res) {
+  res.render('auth/signup');
 });
+
+
+
+// router.get('/', function(req, res) {
+//   db.project-2-googlemaps.findAll().then(function(tacos) {
+//     res.render('project-2-googlemaps/index', {tacos: tacos});
+//   }).catch(function(err) {
+//     res.status(500).render('error');
+//   });
+// });
 
 // router.get('/new', function(req, res) {
 //   res.render('tacos/new');
