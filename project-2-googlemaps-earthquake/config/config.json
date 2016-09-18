@@ -2,21 +2,21 @@
   "development": {
     "username": "dexterleow",
     "password": null,
-    "database": "project-2-googlemaps_development",
+    "database": "p2_development",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "test": {
     "username": "dexterleow",
     "password": null,
-    "database": "project-2-googlemaps_test",
+    "database": "p2_test",
     "host": "127.0.0.1",
     "dialect": "postgres"
   },
   "production": {
     "username": "dexterleow",
     "password": null,
-    "database": "project-2-googlemaps_production",
+    "database": "p2_production",
     "host": "127.0.0.1",
     "dialect": "postgres"
   }
