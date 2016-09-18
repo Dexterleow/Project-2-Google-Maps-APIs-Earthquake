@@ -1,7 +1,7 @@
 var express = require('express');
 var db = require('./../models');
 var router = express.Router();
-
+//
 router.get('/', function(req, res) {
   db.project-2-googlemaps.findAll().then(function(tacos) {
     res.render('project-2-googlemaps/index', {tacos: tacos});
