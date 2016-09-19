@@ -54,15 +54,20 @@ app.get('/profile', isLoggedIn, function(req, res) {
 
 app.use('/auth', require('./controllers/auth'));
 
+//ErrorHandler
 
-
-// app.use(function errorHandler(err, req, res, next) {
-//   if (res.headersSent) {
-//     return next(err);
-//   }
-//   res.status(500);
-//   res.render('404page', { error: err });
-// });
+app.get('*', function(req, res, next) {
+  var err = new Error();
+  err.status = 404;
+  next(err);
+});
+// handling 404 errors
+app.use(function(err, req, res, next) {
+  if(err.status !== 404) {
+    return next();
+  }
+  res.send(err.message || '** no unicorns here **');
+});
 
 
 
