@@ -1,5 +1,8 @@
 
 var express = require('express');
+
+var layout = require('express-layout');
+
 var bodyParser = require('body-parser');
 var ejsLayouts = require('express-ejs-layouts');
 var passport = require('./config/ppConfig');
@@ -19,6 +22,8 @@ app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 //Give a default layout
 // app.use(ejsLayouts);
+app.use(layout());
+
 app.set('view options', { layout: false });
 
 
@@ -49,13 +54,13 @@ app.use(function(req, res, next) {
 
 
 app.get('/', function(req, res) {
-  res.render('index');
+  res.render('index',{ layout: 'layout' });
 });
 
 
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
+  res.render('profile',{ layout: '404page' });
 // //   res.render('layout.ejs', {
 //   layout: false;
 // // });
