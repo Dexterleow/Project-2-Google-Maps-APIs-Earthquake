@@ -19,13 +19,14 @@
 <body>
 
   <!-- if not log in else display layout.js -->
-  
+
   <div>
     <h3>
       Login to Google-Map's Earthquake with your email address
     </h3>
   </div>
 
+<% include ../partials/alerts %>
 
   <form action="/auth/login" method="POST">
     <div class="form-group">
@@ -42,6 +43,7 @@
   </form>
 
   <div>Forgot Your pasword?</div>
+
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   <script src="/js/bootstrap.min.js"></script>

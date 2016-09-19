@@ -1,40 +1,61 @@
 console.log("Javascript,are you there?");
 
-  var map;
+var map;
 
-  function initialize() {
-    var mapOptions = {
-      zoom: 2,
-      center: {lat: -33.865427, lng: 151.196123},
-      mapTypeId: 'terrain'
+function initialize() {
+
+  
+  var mapOptions = {
+    zoom: 2,
+    center: {lat: -33.865427, lng: 151.196123},
+    mapTypeId: 'terrain',
+    zoomControl: true,
+    zoomControlOptions: {
+    position: google.maps.ControlPosition.LEFT_TOP
+},
+  };
+
+
+
+
+
+
+  map = new google.maps.Map(document.getElementById('map'),
+  mapOptions);
+
+
+
+  // Create a <script> tag and set the USGS URL as the source.
+  var script = document.createElement('script');
+  //M2.5_Earthquake in the past 7 days.
+  script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+  document.getElementsByTagName('head')[0].appendChild(script);
+
+  function eqfeed_callback(response) {
+    map.data.addGeoJson(response); // addGeoJson() method to place the parsed GeoJSON data on the map.
+  }
+}
+
+//Earthquake data is passed to the eqfeed_callback
+function eqfeed_callback(results) {
+  //This adds the coordinates of each earthquake to the heatmapData array.
+  var heatmapData = [];
+  for (var i = 0; i < results.features.length; i++) {
+    var coords = results.features[i].geometry.coordinates;
+    var latLng = new google.maps.LatLng(coords[1], coords[0]);
+    //That array is then passed to the HeatmapLayer constructor, which creates the heatmap and displays it on the map.
+
+    var magnitude = results.features[i].properties.mag;
+    var weightedLoc = {
+      location: latLng,
+      weight: Math.pow(2, magnitude)
     };
-
-    map = new google.maps.Map(document.getElementById('map'),
-          mapOptions);
-
-
-// Create a <script> tag and set the USGS URL as the source.
-    var script = document.createElement('script');
-//M2.5_Earthquake in the past 7 days.
-    script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
-    document.getElementsByTagName('head')[0].appendChild(script);
-
-    function eqfeed_callback(response) {
-      map.data.addGeoJson(response); // addGeoJson() method to place the parsed GeoJSON data on the map.
-    }
-
+    heatmapData.push(weightedLoc);
   }
-
-  function eqfeed_callback(results) {
-    var heatmapData = [];
-    for (var i = 0; i < results.features.length; i++) {
-      var coords = results.features[i].geometry.coordinates;
-      var latLng = new google.maps.LatLng(coords[1], coords[0]);
-      heatmapData.push(latLng);
-    }
-    var heatmap = new google.maps.visualization.HeatmapLayer({
-      data: heatmapData,
-      dissipating: false,
-      map: map
-    });
-  }
+  //Weight the results by magnitude
+  var heatmap = new google.maps.visualization.HeatmapLayer({
+    data: heatmapData,
+    dissipating: false,
+    map: map
+  });
+}

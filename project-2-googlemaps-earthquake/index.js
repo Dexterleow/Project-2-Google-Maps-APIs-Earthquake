@@ -49,13 +49,12 @@ app.get('/', function(req, res) {
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile',{ layout: 'layout' });
+  res.render('profile');
 });
 
 app.use('/auth', require('./controllers/auth'));
 
 //ErrorHandler
-
 app.get('*', function(req, res, next) {
   var err = new Error();
   err.status = 404;
@@ -68,7 +67,6 @@ app.use(function(err, req, res, next) {
   }
   res.send(err.message || '** no unicorns here **');
 });
-
 
 
 app.post('earthquakes', isLoggedIn, function (req, res) {
