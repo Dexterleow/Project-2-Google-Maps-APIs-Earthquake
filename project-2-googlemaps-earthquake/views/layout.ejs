@@ -4,7 +4,6 @@
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Authentication</title>
   <!-- Latest compiled and minified CSS & JS -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
   <!-- Local CSS Files -->
@@ -19,33 +18,43 @@
 </head>
 <body>
   <!-- <div class="container"> -->
-  <h1>Authentication</h1>
-  <%- body %>
-
-  <%- JSON.stringify(currentUser) %>
-
-  <!--
-  Why cant i use currentUser.name as my code -->
-  <% include partials/alerts %>
+  <!-- <h1>Aassa</h1> -->
 
   <p id="currentDate"></p>
 
-  <div id="top-bar">
-    <ul>
-      <li id="title"><a href="#home">M2.5_Earthquake in the past 7 days.</a></li>
-      <li id="sign-in"><a href="#signin">Sign in</a></li>
-      <li id="login-box"><a href="#login">Login</a></li>
-    </ul>
-  </div>
+  <%- body %>
 
-  <div id="mainContainer">
-    <div class="col-xs-12 col-md-8" id="map"></div>
 
-    <div class="col-xs-6 col-md-4" id="twitterAlerts">
+  <div id="displayCurrentUser">
+
+    <% if (!currentUser) {%>
+      Hello guest
+      <% } else if (currentUser) { %>
+        You are logged on as <%- (currentUser.name) %>
+        <% } %>
+
+      </div>
+
+      <% include partials/alerts %>
+
+
+    
+      <div id="top-bar">
+        <ul>
+          <li id="title"><a href="#home">M2.5_Earthquake in the past 7 days.</a></li>
+          <li id="sign-in"><a href="#signin">Get Started</a></li>
+          <li id="login-box"><a href="#login">Login</a></li>
+        </ul>
+      </div>
+
+      <!-- <div id="mainContainer">
+      <div class="col-xs-12 col-md-8" id="map"></div>
+
+      <div class="col-xs-6 col-md-4" id="twitterAlerts">
       <a class="twitter-timeline"  href="https://twitter.com/hashtag/earthquake" data-widget-id="777180756267241472">#earthquake Tweets</a>
     </div>
 
-  </div>
+  </div> -->
 
   <!-- </div> -->
 

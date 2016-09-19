@@ -14,9 +14,16 @@ var session = require('express-session');
 
 app.set('view engine', 'ejs');
 
+
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(ejsLayouts);
+//Give a default layout
+// app.use(ejsLayouts);
+app.set('view options', { layout: false });
+
+
+
+
 app.use(express.static(__dirname + '/public/'));
 app.use(session({
   secret: process.env.SESSION_SECRET || 'donttellanybody',
@@ -39,17 +46,25 @@ app.use(function(req, res, next) {
   next();
 });
 
+
+
 app.get('/', function(req, res) {
   res.render('index');
 });
 
-app.get('/profile', function(req, res) {
-  res.render('profile');
-});
+
 
 app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
+// //   res.render('layout.ejs', {
+//   layout: false;
+// // });
 });
+
+
+app.post('earthquakes', isLoggedIn, function (req, res) {
+  res.render('Markers');
+}); //Giving Logged in Users some special functions
 
 app.use('/auth', require('./controllers/auth'));
 
