@@ -26,9 +26,6 @@ app.use(layout());
 
 app.set('view options', { layout: false });
 
-
-
-
 app.use(express.static(__dirname + '/public/'));
 app.use(session({
   secret: process.env.SESSION_SECRET || 'donttellanybody',
@@ -57,13 +54,8 @@ app.get('/', function(req, res) {
   res.render('index',{ layout: 'layout' });
 });
 
-
-
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile',{ layout: '404page' });
-// //   res.render('layout.ejs', {
-//   layout: false;
-// // });
+  res.render('profile',{ layout: 'layout' });
 });
 
 
@@ -72,6 +64,10 @@ app.post('earthquakes', isLoggedIn, function (req, res) {
 }); //Giving Logged in Users some special functions
 
 app.use('/auth', require('./controllers/auth'));
+
+
+
+
 
 console.log("You're listening to the smooth smooth sounds of http://localhost:3000");
 

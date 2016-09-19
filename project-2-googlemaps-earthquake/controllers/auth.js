@@ -4,7 +4,7 @@ var passport = require('../config/ppConfig');
 var router = express.Router();
 
 router.get('/signup', function(req, res) {
-  res.render('auth/signup');
+  res.render('auth/signup',{ layout: 'auth/signup' });
 });
 
 router.post('/signup', function(req, res) {
@@ -35,7 +35,7 @@ router.post('/signup', function(req, res) {
 });
 
 router.get('/login', function(req, res) {
-  res.render('auth/login');
+  res.render('auth/login',{ layout: 'auth/login' });
 });
 
 router.post('/login', passport.authenticate('local', {
