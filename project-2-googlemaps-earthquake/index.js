@@ -48,12 +48,12 @@ app.get('/', function(req, res) {
   res.render('index',{ layout: 'layout' });
 });
 
-app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile',{ layout: 'profile' });
+app.get('/myProjects', isLoggedIn, function(req, res) {
+  res.render('myProjects',{ layout: 'myProjects' });
 });
 
-app.get('/charts', function(req, res) {
-  res.render('charts',{ layout: 'charts' });
+app.get('/allProjects', function(req, res) {
+  res.render('allProjects',{ layout: 'allProjects' });
 });
 
 app.use('/auth', require('./controllers/auth'));
