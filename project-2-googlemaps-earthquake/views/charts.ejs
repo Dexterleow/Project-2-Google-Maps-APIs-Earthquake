@@ -50,6 +50,21 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolore, veritatis, tempora, necessitatibus inventore nisi quam quia repellat ut tempore laborum possimus eum dicta id animi corrupti debitis ipsum officiis rerum.</p>
         <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
+
+        <a class="btn btn-primary" href="#">Donate Now <span class="glyphicon glyphicon-chevron-right"></span></a>
+
+        <!-- <form class="form-inline"> -->
+          <!-- <div class="form-group">
+            <label class="sr-only" for="exampleInputAmount">Amount (in dollars)</label>
+            <div class="input-group">
+              <div class="input-group-addon">$</div>
+              <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+              <div class="input-group-addon">.00</div>
+            </div>
+          </div> -->
+          <!-- <button type="submit" class="btn btn-primary">Transfer cash</button>
+        </form> -->
+
         <hr>
 
         <!-- Second Blog Post -->
@@ -66,6 +81,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quibusdam, quasi, fugiat, asperiores harum voluptatum tenetur a possimus nesciunt quod accusamus saepe tempora ipsam distinctio minima dolorum perferendis labore impedit voluptates!</p>
         <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
+        <a class="btn btn-primary" href="#">Donate Now <span class="glyphicon glyphicon-chevron-right"></span></a>
         <hr>
 
         <!-- Third Blog Post -->
@@ -82,6 +98,7 @@
         <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate, voluptates, voluptas dolore ipsam cumque quam veniam accusantium laudantium adipisci architecto itaque dicta aperiam maiores provident id incidunt autem. Magni, ratione.</p>
         <a class="btn btn-primary" href="#">Read More <span class="glyphicon glyphicon-chevron-right"></span></a>
 
+        <a class="btn btn-primary" href="#">Donate Now <span class="glyphicon glyphicon-chevron-right"></span></a>
         <hr>
 
         <!-- Pager -->
@@ -102,7 +119,51 @@
 <!-- Create New Project -->
 <div class="well">
 
-<button type="button" class="btn btn-success">Create a New Project</button>
+<!-- Trigger the modal with a button -->
+<button type="button" class="btn btn-success" data-toggle="modal" data-target="#myModal">Create a New Project</button>
+
+<!-- Modal -->
+<div id="myModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">Create Your New Project</h4>
+      </div>
+      <div class="modal-body">
+
+        <form>
+          <div class="form-group">
+            <label for="projectTitle">Project Title</label>
+            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter the name of your project">
+          </div>
+
+          <div class="form-group">
+            <label for="exampleInputFile">Upload your Picture</label>
+            <input type="file" class="form-control-file" id="exampleInputFile" aria-describedby="fileHelp">
+            <small id="fileHelp" class="form-text text-muted">Please upload a clear photo for best results.</small>
+          </div>
+          <div class="form-group">
+            <label for="exampleTextarea">Example textarea</label>
+            <textarea class="form-control" id="exampleTextarea" rows="6"></textarea>
+          </div>
+
+
+          <button type="submit" class="btn btn-primary">Submit</button>
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </form>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>
+
+
+
   <!-- /.input-group -->
 </div>
         <!-- Blog Search Well -->
