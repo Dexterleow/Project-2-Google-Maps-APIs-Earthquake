@@ -10,6 +10,7 @@ var morgan = require('morgan');
 var NODE_ENV = require("node-env")
 var db = require('./models');
 var isLoggedIn = require('./middleware/isLoggedIn');
+var isLoggedInPost = require('./middleware/isLoggedInPost');
 var app = express();
 var session = require('express-session');
 
@@ -48,15 +49,41 @@ app.get('/', function(req, res) {
   res.render('index',{ layout: 'layout' });
 });
 
+// After User is logged in
+// Get all post of a User
 app.get('/myProjects', isLoggedIn, function(req, res) {
   res.render('myProjects',{ layout: 'myProjects' });
 });
+
 
 app.get('/allProjects', function(req, res) {
   res.render('allProjects',{ layout: 'allProjects' });
 });
 
 app.use('/auth', require('./controllers/auth'));
+
+
+
+// After User is logged in
+//Create post
+app.post('/postform', isLoggedInPost, function (req, res) {
+  res.render('createPost');
+}); //must be linked to the submit button in the form
+
+//Edit Post (by id)
+app.put('/posts/:id',isLoggedInPost, function (req, res) {
+  res.render('editPost')
+});
+// Delete Post (by id)
+app.delete('/posts/:id',isLoggedInPost, function (req, res) {
+  res.render('editPost')
+});
+
+app.post('earthquakes', isLoggedIn, function (req, res) {
+  res.render('Markers');
+}); //Giving Logged in Users some special functions
+
+
 
 //ErrorHandler
 app.get('*', function(req, res, next) {
@@ -71,14 +98,6 @@ app.use(function(err, req, res, next) {
   }
   res.send(err.message || '** no unicorns here **');
 });
-
-
-
-app.post('earthquakes', isLoggedIn, function (req, res) {
-  res.render('Markers');
-}); //Giving Logged in Users some special functions
-
-
 
 
 console.log("You're listening to the smooth smooth sounds of http://localhost:3000");
