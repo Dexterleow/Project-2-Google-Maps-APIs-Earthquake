@@ -49,10 +49,10 @@ app.get('/', function(req, res) {
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
+  res.render('profile',{ layout: 'profile' });
 });
 
-app.get('/charts', isLoggedIn, function(req, res) {
+app.get('/charts', function(req, res) {
   res.render('charts',{ layout: 'charts' });
 });
 
