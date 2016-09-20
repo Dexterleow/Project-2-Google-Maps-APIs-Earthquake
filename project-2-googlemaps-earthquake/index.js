@@ -52,6 +52,10 @@ app.get('/profile', isLoggedIn, function(req, res) {
   res.render('profile');
 });
 
+app.get('/charts', isLoggedIn, function(req, res) {
+  res.render('charts',{ layout: 'charts' });
+});
+
 app.use('/auth', require('./controllers/auth'));
 
 //ErrorHandler
@@ -67,6 +71,7 @@ app.use(function(err, req, res, next) {
   }
   res.send(err.message || '** no unicorns here **');
 });
+
 
 
 app.post('earthquakes', isLoggedIn, function (req, res) {

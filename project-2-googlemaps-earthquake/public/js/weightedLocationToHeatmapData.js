@@ -4,9 +4,11 @@ var map;
 
 function initialize() {
 
-  
+
   var mapOptions = {
     zoom: 2,
+    minZoom: 2,
+    maxZoom: 15,
     center: {lat: -33.865427, lng: 151.196123},
     mapTypeId: 'terrain',
     zoomControl: true,
@@ -14,11 +16,6 @@ function initialize() {
     position: google.maps.ControlPosition.LEFT_TOP
 },
   };
-
-
-
-
-
 
   map = new google.maps.Map(document.getElementById('map'),
   mapOptions);
@@ -34,6 +31,30 @@ function initialize() {
   function eqfeed_callback(response) {
     map.data.addGeoJson(response); // addGeoJson() method to place the parsed GeoJSON data on the map.
   }
+
+  var drawingManager =  new google.maps.drawing.DrawingManager({
+      drawingMode: google.maps.drawing.OverlayType.MARKER,
+      drawingControl: true,
+      drawingControlOptions: {
+        position: google.maps.ControlPosition.TOP_RIGHT,
+        drawingModes: ['marker', 'polygon', 'rectangle']
+      },
+      markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
+      circleOptions: {
+        fillColor: '#ffff00',
+        fillOpacity: 1,
+        strokeWeight: 5,
+        clickable: false,
+        editable: true,
+        zIndex: 1
+      }
+    });
+    drawingManager.setMap(map);
+
+
+
+
+
 }
 
 //Earthquake data is passed to the eqfeed_callback
