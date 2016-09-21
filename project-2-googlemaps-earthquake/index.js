@@ -49,26 +49,31 @@ app.get('/', function(req, res) {
   res.render('index',{ layout: 'layout' });
 });
 
+
 // After User is logged in
 // Get all post of a User
-app.get('/myProjects', isLoggedIn, function(req, res) {
-  res.render('myProjects',{ layout: 'myProjects' });
-});
-
-
-app.get('/allProjects', function(req, res) {
-  res.render('allProjects',{ layout: 'allProjects' });
-});
+// app.get('/myProjects', isLoggedIn, function(req, res) {
+//   res.render('myProjects',{ layout: 'myProjects' });
+// });
+//
+// app.get('/allProjects', function(req, res) {
+//   res.render('allProjects',{ layout: 'allProjects' });
+// });
 
 app.use('/auth', require('./controllers/auth'));
+app.use('/posts', require('./controllers/posts'));
 
 
 
 // After User is logged in
-//Create post
-app.post('/postform', isLoggedInPost, function (req, res) {
-  res.render('createPost');
-}); //must be linked to the submit button in the form
+
+//Create post. Post need to created
+// app.post('/myProjects','/allProjects', isLoggedInPost, function (req, res) {
+//    res.json(req.body); // handle the user form data
+// }); //must be linked to the submit button in the form
+
+//Above code created an error.
+
 
 //Edit Post (by id)
 app.put('/posts/:id',isLoggedInPost, function (req, res) {
@@ -83,7 +88,7 @@ app.post('earthquakes', isLoggedIn, function (req, res) {
   res.render('Markers');
 }); //Giving Logged in Users some special functions
 
-
+//
 
 //ErrorHandler
 app.get('*', function(req, res, next) {
@@ -98,6 +103,8 @@ app.use(function(err, req, res, next) {
   }
   res.send(err.message || '** no unicorns here **');
 });
+
+
 
 
 console.log("You're listening to the smooth smooth sounds of http://localhost:3000");
