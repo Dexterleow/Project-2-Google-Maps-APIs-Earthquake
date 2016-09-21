@@ -1,0 +1,17 @@
+{
+  "development": {
+    "database": "captainplanets_development",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "test": {
+    "database": "captainplanets_test",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
+  "production": {
+    "database": "captainplanets_production",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  }
+}

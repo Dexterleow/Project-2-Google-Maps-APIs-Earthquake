@@ -1,0 +1,39 @@
+
+html {
+  height: 100%
+}
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0
+}
+
+#currentDate{
+font-size: 30px;
+
+}
+#map {
+  height: 888px;
+}
+
+#twitterAlerts {
+  height: 948px;
+}
+
+
+#currentDate{
+
+  color: black;
+}
+
+#projectBox{
+  /*float:right;*/
+}
+
+/*#loginBox{
+  float:left;
+}*/
+
+#siteTitle{
+  /*float:left;*/
+}
