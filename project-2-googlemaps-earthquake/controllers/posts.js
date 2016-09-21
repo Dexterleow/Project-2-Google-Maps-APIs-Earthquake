@@ -11,6 +11,25 @@ router.get('/allProjects', function(req, res) {
     res.render('allProjects', {posts: data});
   });
 });
+
+// Get specified user's posts from Database
+// app.get('/myProjects', isLoggedIn, function(req, res) {
+//   res.render('myProjects',{ layout: 'myProjects' });
+// });
+
+router.get('/myProjects', function(req, res) {
+  db.post.findAll().then(function(data) {
+    console.log("Serving all projects");
+    console.log(data);
+    res.render('myProjects', {posts: data});
+  });
+});
+
+
+
+
+
+
 //
 // //Get the specififed post from Database
 // router.get('/:id', function(req, res) {
