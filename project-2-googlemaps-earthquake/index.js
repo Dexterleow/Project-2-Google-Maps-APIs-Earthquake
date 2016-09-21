@@ -17,7 +17,7 @@ var session = require('express-session');
 app.set('view engine', 'ejs');
 
 app.use(require('morgan')('dev'));
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({ extended: true }));
 //Give a default layout
 // app.use(ejsLayouts);
 app.use(layout());
@@ -83,6 +83,37 @@ app.put('/posts/:id',isLoggedInPost, function (req, res) {
 app.delete('/posts/:id',isLoggedInPost, function (req, res) {
   res.render('editPost')
 });
+
+//Logged in user post a post.
+app.post('/posts', function(req, res) {
+  res.json('this is working')
+  // db.post.findOrCreate({
+  //   where: {
+  //     projectTitle: req.body.projectTitle
+  //   },
+  //   defaults: {
+  //     picture: req.body.picture,
+  //     category: req.body.category,
+  //     description: req.body.description,
+  //     userid: parseInt(req.body.userid, 10),
+  //   }
+  // }).spread(function(post, created) {
+  //   console.log('created: ', created);
+  //   console.log('post: ', post);
+  //
+  //   res.json(post)
+  //   // res.render('myProjects', {post: post});
+  // });
+    // Add these values to my Posgres system here.
+});
+
+
+
+
+
+
+
+
 
 app.post('earthquakes', isLoggedIn, function (req, res) {
   res.render('Markers');
