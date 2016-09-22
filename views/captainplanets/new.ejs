@@ -1,29 +1,29 @@
 
 <div class="container">
-<h1>New Project</h1>
+  <h1>New Project</h1>
 
-<form action="/captainplanets" method="POST" role="form" enctype="multipart/form-data">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Project Name" name="name">
-  </div>
-  <div class="form-group">
-    <label for="amount">Amount</label>
-    <input type="number" class="form-control" id="amount" placeholder="$ Project Required Funds" name="amount">
-  </div>
-  <div class="form-group">
-    <label for="description">Description</label>
-    <input type="text" class="form-control" id="description" placeholder="Project Description" name="description">
-  </div>
+  <form action="/captainplanets" method="POST" role="form" enctype="multipart/form-data">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Project Name..." name="name">
+    </div>
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input type="number" class="form-control" id="amount" placeholder="$ Project Required Funds (Numbers Only)" name="amount">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description" placeholder="Project Description..." name="description">
+    </div>
 
-  <div class="form-group">
-    <label for="picturefile">Upload Your Picture Here.</label>
-    <input type="file" name="myFile">
-  </div>
+    <div class="form-group">
+      <label for="picturefile">Upload Your Picture Here.</label>
+      <input type="file" name="myFile">
+    </div>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 
-<a href="/captainplanets">&larr; Back</a>
+  <a href="/captainplanets">&larr; Back</a>
 </div>
 <%- contentFor('topbuttons') %>

@@ -8,7 +8,7 @@
   <link href="/css/mystyle.css" rel="stylesheet">
   <!-- Bootstrap CSS -->
   <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css?family=Carter+One" rel="stylesheet">
   <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
   <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
   <!--[if lt IE 9]>
@@ -22,44 +22,85 @@
 
     <div class="row">
 
-    <div class="col-lg-6">
-      <h5>CAP HEAD IMAGE</h5>
-      <a href="/"><h1 id="siteTitle">Captain Planet! </h1>  </a>
-      <div id="currentDate"></div>
-    </div>
-    <div class="col-lg-6">
-      <div class="row">
+      <div class="col-lg-6">
 
-
-        <%- topbuttons %>
+        <a href="/"><h1 class=mainTitle id="siteTitle">Captain Planet ! </h1>  </a>
+        <div class=mainTitle id="currentDate"></div>
       </div>
-      <div class="row" id="loginBox">
-        <div class="pull-right">
+      <div class="col-lg-6">
+        <div class="row">
 
 
-        <% if (!currentUser) { %>
-          <a id="signupIcon" href="/auth/signup">Signup</a>
-          <a id="loginIcon" href="/auth/login">Login</a>
-          <a id="helpIcon" href ="#">Help</a>
-          <% } else { %>
-            <h3><%= currentUser.name %></h3>
-            <a href="/auth/logout">Logout</a>
-            <% } %>
-            <% include partials/alerts %>
+          <%- topbuttons %>
         </div>
-        </div>
-      </div>
-    </div>
+        <div class="row" id="loginBox">
+          <div class="pull-right">
+
+
+            <% if (!currentUser) { %>
+              <a class ="Icon" id="signupIcon" href="/auth/signup">Signup</a>
+              <a class ="Icon" id="loginIcon" href="/auth/login">Login</a>
+              <a class ="Icon" id="helpIcon" href ="#" data-toggle="modal" data-target="#myModal">Help</a>
+
+              <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                      </button>
+                      <h4 class="modal-title">Help Section.</h4>
+                    </div>
+                    <div class="modal-body">
+                      <h3> Welcome to Captain Planet !</h3>
+                      <br>
+                      <h5> <b>The Online Mapping Site for Earthquake Investigation and Projects to Aid in Earthquake Recovery. </b> <h5>
+                        <br>
+                        <p>There are many ways to participate with Captain Planet ! </p>
+                        <p>
+                          Firstly, working with the online and interactive mapping application to explore and understand the recent earthquakes in the world.
+                        </p>
+
+                        <p id="smallText">
+                          (All Earthquakes (M2.5+) that happened in the Past 7 Days will be rendered on the Map.)
+                        </p>
+                        <br>
+                        <p>
+                          Or you may start a project and do your part to make the world a better place!
+                        </p>
+                        <br>
+                        <h5><b>Get Started Now!</b><h5>
+                          <br>
+                          <p>Create an Account and Check out 'View All Projects' tab for some of the Ongoing Recovery Projects! : )</p>
+                          <img id ="planeteerMovement"src="/img/planetterMovement.jpg" alt= "Planeteer Movement">
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        </div>
+                      </div><!-- /.modal-content -->
+                    </div><!-- /.modal-dialog -->
+                  </div><!-- /.modal -->
+
+
+                  <% } else { %>
+                    <h3><%= currentUser.name %></h3>
+                    <a class ="Icon" id="logoutIcon" href="/auth/logout">Logout</a>
+                    <% } %>
+                    <% include partials/alerts %>
+                  </div>
+                </div>
+              </div>
+            </div>
 
 
 
-    </div>
-<%- body %>
-    <!-- jQuery -->
-    <script src="//code.jquery.com/jquery.js"></script>
-    <!-- Bootstrap JavaScript -->
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="/js/script.js"></script>
-    <script src="/js/gettingTodayDate.js"></script>
-  </body>
-  </html>
+          </div>
+          <%- body %>
+          <!-- jQuery -->
+          <script src="//code.jquery.com/jquery.js"></script>
+          <!-- Bootstrap JavaScript -->
+          <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+          <script src="/js/script.js"></script>
+          <script src="/js/gettingTodayDate.js"></script>
+        </body>
+        </html>

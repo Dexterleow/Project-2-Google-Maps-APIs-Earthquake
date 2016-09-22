@@ -7,26 +7,27 @@
   <h1><%= title %></h1>
 
 
-<div>
-<% captainplanets.forEach(function(captainplanet) { %>
+  <div>
+    <% captainplanets.forEach(function(captainplanet) { %>
 
-  <div class="well">
-    <h2><a href="/captainplanets/<%= captainplanet.id %>"><%= captainplanet.name %></a>
-      <small><%= captainplanet.amount %></small>
-    </h2>
-      <small><%= captainplanet.description %></small>
-    <small><img src ="<%= captainplanet.picture %>">"</small>
-    <% if (captainplanet.userId === currentUser.id) { %>
-      <div>
-        <a href="/captainplanets/<%= captainplanet.id %>/edit" class="btn btn-info glyphicon glyphicon-edit"></a>
-        <a href="/captainplanets/<%= captainplanet.id %>" class="btn btn-danger glyphicon glyphicon-trash delete-btn"></a>
-        <% } %>
+      <div class="well">
+        <h2><a href="/captainplanets/<%= captainplanet.id %>"><%= captainplanet.name %></a>
+          <br>
+          <small>Funding Required: $<%= captainplanet.amount %></small>
+        </h2>
+        <small><%= captainplanet.description %></small>
+        <small><img src ="<%= captainplanet.picture %>">"</small>
+        <% if (captainplanet.userId === currentUser.id) { %>
+          <div>
+            <a href="/captainplanets/<%= captainplanet.id %>/edit" class="btn btn-info glyphicon glyphicon-edit"></a>
+            <a href="/captainplanets/<%= captainplanet.id %>" class="btn btn-danger glyphicon glyphicon-trash delete-btn"></a>
+            <% } %>
+          </div>
+        </div>
+        <% }); %>
+
+        <a href="/">&larr; Home</a>
+
       </div>
     </div>
-    <% }); %>
-
-<a href="/">&larr; Home</a>
-
-</div>
-</div>
-<%- contentFor('topbuttons') %>
+    <%- contentFor('topbuttons') %>

@@ -63,29 +63,24 @@ function eqfeed_callback(results) {
 
     var markerCoordsTime = results.features[i].properties.updated; //time of Earthquake
 
-
     var markerDateFormat = toDateTime(markerCoordsTime).toString();
 
-
-    // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/'; //Not working.
     var marker = new google.maps.Marker({
       position: latLng,
       // title: markerCoordsTitle,
       content: markerCoordsTitle,
       time: markerDateFormat,
-
-    // icon: iconBase + 'http://www.freeiconspng.com/uploads/helicopter-icon-8.png', //not working.
+      opacity: 1,
       map:map
     });
 
-console.log(marker);
-
+    //Add eventlistener to generate JSON Earthquake Title & Time when we click on the marker
     marker.addListener('click', function() {
-          var infowindow = new google.maps.InfoWindow({
-            content: this.content + "." + " " + this.time,
-            maxWidth:200
-          });
-          infowindow.open(map, this);
+      var infowindow = new google.maps.InfoWindow({
+        content: this.content + "." + " " + this.time,
+        maxWidth:200
+      });
+      infowindow.open(map, this);
     });
 
     var magnitude = results.features[i].properties.mag;

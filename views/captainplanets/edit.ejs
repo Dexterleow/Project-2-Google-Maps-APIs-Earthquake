@@ -1,22 +1,27 @@
-<h1>Edit</h1>
 
-<form action="/captainplanets/<%= captainplanet.id %>" class="edit-form" role="form">
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" class="form-control" id="name" placeholder="Name of Taco" name="name" value="<%= captainplanet.name %>">
-  </div>
-  <div class="form-group">
-    <label for="amount">Amount</label>
-    <input type="number" class="form-control" id="amount" placeholder="Funding Needed" name="amount" value="<%= captainplanet.amount %>">
-  </div>
-  <div class="form-group">
-    <label for="description">Description</label>
-    <input type="text" class="form-control" id="description" placeholder="Project Description" name="description">
-  </div>
+<div class="container">
+  <h1>Edit</h1>
 
-  <button type="submit" class="btn btn-primary">Submit</button>
-</form>
+  <form action="/captainplanets/<%= captainplanet.id %>" class="edit-form" role="form">
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" placeholder="Name of Taco" name="name" value="<%= captainplanet.name %>">
+    </div>
+    <div class="form-group">
+      <label for="amount">Amount</label>
+      <input type="number" class="form-control" id="amount" placeholder="Funding Needed" name="amount" value="<%= captainplanet.amount %>">
+    </div>
+    <div class="form-group">
+      <label for="description">Description</label>
+      <input type="text" class="form-control" id="description" placeholder="Project Description" name="description">
+    </div>
+    <div class="form-group">
+      <label for="picturefile">Upload Your Picture Here.</label>
+      <input type="file" name="myFile">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </form>
 
-<a href="/captainplanets">&larr; Back</a>
-
+  <a href="/captainplanets">&larr; Back</a>
+</div>
 <%- contentFor('topbuttons') %>

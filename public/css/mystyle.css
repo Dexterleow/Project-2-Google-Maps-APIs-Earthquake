@@ -8,13 +8,16 @@ body {
   padding: 0
 }
 
+#description {
+  height:300px;
+}
+
 #bigContainer {
-padding-top:15px;
+  padding-top:15px;
 }
 
 #currentDate{
-font-size: 30px;
-
+  font-size: 30px;
 }
 #map {
   height: 888px;
@@ -24,38 +27,24 @@ font-size: 30px;
   height: 948px;
 }
 
-
-#currentDate{
+.mainTitle{
   color: black;
-}
-
-#siteTitle{
-  color: black;
+  font-family: 'Carter One', cursive;
 }
 
 #projectBox{
-margin-bottom: 6px;
+  margin-bottom: 6px;
 }
-
-/*#loginBox{
-  float:left;
-}*/
 
 #siteTitle{
-  /*float:left;*/
+  font-family: 'Carter One', cursive;
 }
 
-#signupIcon {
+.Icon {
   margin: 3px;
   padding: 2px;
-}
-
-#loginIcon {
-
-  margin: 3px;
-  padding: 2px;
-
-
+  color: #60abe0;
+  font-family: 'Carter One', cursive;
 }
 
 #helpIcon {
@@ -63,13 +52,50 @@ margin-bottom: 6px;
   border-width: 2px;
   margin: 3px;
   padding: 3px;
-
-
+  color: #60abe0;
+  font-family: 'Carter One', cursive;
 }
 
+#planeteerMovement{
+  width:288px;
+  height:234px;
+  margin-left: 120px;
+  margin-top: 20px;
+}
 
+#captainPlanetIcon {
+  width:103px;
+  height:50px;
+  margin: 0px;
+  padding:0px;
+}
 
+#smallText{
+  font-size: 14px;
+}
 
+#socialMediaIcon{
+  width:133px;
+  height:40px;
+}
+
+#allProjects {
+  background: #326891;
+  background-color: #60abe0;
+  font-family: 'Carter One', cursive;
+}
+
+#allUsers {
+  background: #326891;
+  background-color: #60abe0;
+  font-family: 'Carter One', cursive;
+}
+
+#myProjects {
+  background: #326891;
+  background-color: #60abe0;
+  font-family: 'Carter One', cursive;
+}
 
 .pull-right {
   float: right !important;

@@ -1,17 +1,17 @@
 
 <div class="container">
-<% users.forEach(function(user) { %>
-<div class="well">
-  <h2><%= user.name %></h2>
-  <h4>Their Projects</h4>
-  <ul>
-  <% user.captainplanets.forEach(function(captainplanet) { %>
-  <li><%= captainplanet.name %></li>
-  <% }); %>
-</ul>
-</div>
-<% }); %>
+  <% users.forEach(function(user) { %>
+    <div class="well">
+      <h2><%= user.name %></h2>
+      <h4>Their Projects</h4>
+      <ul>
+        <% user.captainplanets.forEach(function(captainplanet) { %>
+          <li><%= captainplanet.name %></li>
+          <% }); %>
+        </ul>
+      </div>
+      <% }); %>
 
-<a href="/">&larr; Home</a>
-</div>
-<%- contentFor('topbuttons') %>
+      <a href="/">&larr; Home</a>
+    </div>
+    <%- contentFor('topbuttons') %>
