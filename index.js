@@ -9,6 +9,9 @@ var flash = require('connect-flash')
 var csurf = require('csurf')
 var app = express();
 
+require('dotenv').config({silent: true});
+
+
 app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(ejsLayouts);
@@ -50,6 +53,9 @@ app.get('/users', function(req, res) {
     res.render('users', {users: data})
   })
 });
+
+
+
 
 app.use('/captainplanets', isLoggedIn, require('./controllers/captainplanets'));
 

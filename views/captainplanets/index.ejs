@@ -6,7 +6,7 @@
 
   <h1><%= title %></h1>
 
-
+dwadsad
 <div>
 <% captainplanets.forEach(function(captainplanet) { %>
 
@@ -15,6 +15,7 @@
       <small><%= captainplanet.amount %></small>
     </h2>
       <small><%= captainplanet.description %></small>
+    <small><%= captainplanet.picture %></small>
     <% if (captainplanet.userId === currentUser.id) { %>
       <div>
         <a href="/captainplanets/<%= captainplanet.id %>/edit" class="btn btn-info glyphicon glyphicon-edit"></a>

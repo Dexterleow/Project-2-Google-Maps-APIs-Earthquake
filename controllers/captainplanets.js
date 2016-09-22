@@ -1,6 +1,10 @@
 var express = require('express')
 var db = require('./../models')
 var router = express.Router()
+var multer = require('multer');
+var upload = multer({ dest: './uploads/' });
+var cloudinary = require('cloudinary');
+
 
 function isUsersCP (req, captainplanet) {
   if (req.user.id !== captainplanet.userId) {
@@ -86,12 +90,18 @@ router.delete('/:id', function (req, res) {
   })
 })
 
-router.post('/', function (req, res) {
-  req.user.createCaptainplanet(req.body).then(function (captainplanet) {
-    res.redirect('/captainplanets')
-  }).catch(function (err) {
-    res.status(500).render('error')
-  })
+router.post('/', upload.single('myFile'), function(req, res) {
+  cloudinary.uploader.upload(req.file.path, function(result) {
+    console.log(result);
+    req.body.picture = result.url
+    req.user.createCaptainplanet(req.body).then(function (captainplanet) {
+      res.redirect('/captainplanets')
+    }).catch(function (err) {
+      res.status(500).render('error')
+    })
+  });
+
 })
+
 
 module.exports = router
