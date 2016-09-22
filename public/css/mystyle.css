@@ -34,7 +34,7 @@ font-size: 30px;
 }
 
 #projectBox{
-  /*float:right;*/
+margin-bottom: 6px;
 }
 
 /*#loginBox{
@@ -44,6 +44,32 @@ font-size: 30px;
 #siteTitle{
   /*float:left;*/
 }
+
+#signupIcon {
+  margin: 3px;
+  padding: 2px;
+}
+
+#loginIcon {
+
+  margin: 3px;
+  padding: 2px;
+
+
+}
+
+#helpIcon {
+  border-style: solid;
+  border-width: 2px;
+  margin: 3px;
+  padding: 3px;
+
+
+}
+
+
+
+
 
 .pull-right {
   float: right !important;

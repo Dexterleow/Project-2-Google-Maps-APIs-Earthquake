@@ -23,6 +23,7 @@
     <div class="row">
 
     <div class="col-lg-6">
+      <h5>CAP HEAD IMAGE</h5>
       <a href="/"><h1 id="siteTitle">Captain Planet! </h1>  </a>
       <div id="currentDate"></div>
     </div>
@@ -37,8 +38,9 @@
 
 
         <% if (!currentUser) { %>
-          <a href="/auth/signup">Signup</a>
-          <a href="/auth/login">Login</a>
+          <a id="signupIcon" href="/auth/signup">Signup</a>
+          <a id="loginIcon" href="/auth/login">Login</a>
+          <a id="helpIcon" href ="#">Help</a>
           <% } else { %>
             <h3><%= currentUser.name %></h3>
             <a href="/auth/logout">Logout</a>

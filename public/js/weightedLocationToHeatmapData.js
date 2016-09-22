@@ -4,7 +4,6 @@ var map;
 
 function initialize() {
 
-
   var mapOptions = {
     zoom: 2,
     minZoom: 1,
@@ -19,8 +18,6 @@ function initialize() {
 
   map = new google.maps.Map(document.getElementById('map'),
   mapOptions);
-
-
 
   // Create a <script> tag and set the USGS URL as the source.
   var script = document.createElement('script');
@@ -50,39 +47,45 @@ function initialize() {
     }
   });
   drawingManager.setMap(map);
-
-
 }
 
 //Earthquake data is passed to the eqfeed_callback
 function eqfeed_callback(results) {
   //This adds the coordinates of each earthquake to the heatmapData array.
   var heatmapData = [];
+
   for (var i = 0; i < results.features.length; i++) {
     var coords = results.features[i].geometry.coordinates;
     var latLng = new google.maps.LatLng(coords[1], coords[0]);
     //That array is then passed to the HeatmapLayer constructor, which creates the heatmap and displays it on the map.
+    //console.log(results.features[i].geometry.coordinates)
+    var markerCoordsTitle = results.features[i].properties.title; //title of Earthquake
 
-    var markerCoordsTitle = results.features[i].properties.title; //title
-    var markerCoordsTime = results.features[i].properties.time; //time
+    var markerCoordsTime = results.features[i].properties.updated; //time of Earthquake
+
+
+    var markerDateFormat = toDateTime(markerCoordsTime).toString();
+
 
     // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/'; //Not working.
     var marker = new google.maps.Marker({
       position: latLng,
       // title: markerCoordsTitle,
       content: markerCoordsTitle,
-      // icon: iconBase + 'http://www.freeiconspng.com/uploads/helicopter-icon-8.png', //not working.
+      time: markerDateFormat,
+
+    // icon: iconBase + 'http://www.freeiconspng.com/uploads/helicopter-icon-8.png', //not working.
       map:map
     });
 
-    var infowindow = new google.maps.InfoWindow({
-      content: markerCoordsTitle +  markerCoordsTime , //should display accoridng to the loop? converting seconds into string.
-      maxWidth:200
-    });
+console.log(marker);
 
-
-    google.maps.event.addListener(marker, "mouseover", function() {
-      infowindow.open(map, this);
+    marker.addListener('click', function() {
+          var infowindow = new google.maps.InfoWindow({
+            content: this.content + "." + " " + this.time,
+            maxWidth:200
+          });
+          infowindow.open(map, this);
     });
 
     var magnitude = results.features[i].properties.mag;
@@ -92,10 +95,17 @@ function eqfeed_callback(results) {
     };
     heatmapData.push(weightedLoc);
   }
+
   //Weight the results by magnitude
   var heatmap = new google.maps.visualization.HeatmapLayer({
     data: heatmapData,
     dissipating: false,
     map: map
   });
+
+}
+
+function toDateTime(secs) {
+  var d = new Date(secs); // The 0 there is the key, which sets the date to the epoch
+  return d
 }
