@@ -4,7 +4,7 @@ var db = require('../models')
 var passport = require('../config/passport')
 var csrfProtection = require('csurf')()
 
-//Login methods 
+//Login methods
 
 router.get('/signup', csrfProtection, function (req, res) {
   res.render('auth/signup', { csrfToken: req.csrfToken() })

@@ -17,11 +17,25 @@
   <![endif]-->
 </head>
 <body>
-  <div class="container">
-    <a href="/"><h1 id="siteTitle">Captain Planet! </h1>  </a>
-      <div id="currentDate"></div>
+  <!-- <br> -->
+  <div id="bigContainer" class="container" >
 
-      <div id="loginBox" class="pull-right">
+    <div class="row">
+
+    <div class="col-lg-6">
+      <a href="/"><h1 id="siteTitle">Captain Planet! </h1>  </a>
+      <div id="currentDate"></div>
+    </div>
+    <div class="col-lg-6">
+      <div class="row">
+
+
+        <%- topbuttons %>
+      </div>
+      <div class="row" id="loginBox">
+        <div class="pull-right">
+
+
         <% if (!currentUser) { %>
           <a href="/auth/signup">Signup</a>
           <a href="/auth/login">Login</a>
@@ -31,10 +45,14 @@
             <% } %>
             <% include partials/alerts %>
         </div>
-
-        <%- body %>
+        </div>
       </div>
+    </div>
 
+
+
+    </div>
+<%- body %>
     <!-- jQuery -->
     <script src="//code.jquery.com/jquery.js"></script>
     <!-- Bootstrap JavaScript -->

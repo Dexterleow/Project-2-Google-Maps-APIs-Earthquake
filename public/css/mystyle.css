@@ -8,6 +8,10 @@ body {
   padding: 0
 }
 
+#bigContainer {
+padding-top:15px;
+}
+
 #currentDate{
 font-size: 30px;
 
@@ -28,11 +32,6 @@ font-size: 30px;
 #siteTitle{
   color: black;
 }
-
-/*#loginBox{
-  color: black;
-border: 1px black;
-}*/
 
 #projectBox{
   /*float:right;*/

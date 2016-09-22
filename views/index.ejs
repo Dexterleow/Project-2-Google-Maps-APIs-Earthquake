@@ -1,16 +1,10 @@
 
 
 
-<div id="projectBox" class="pull-right">
+<div class="container" id="mainContainer">
+  <div class="row">
 
-<!-- push and pull -->
 
-  <a href="/captainplanets" class="btn btn-primary">View All Projects</a>
-  <a href="/users" class="btn btn-primary">View All Users</a>
-  <a href="/captainplanets?filter=true" class="btn btn-primary">View My Project</a>
-</div>
-
-<div id="mainContainer">
 
   <div class="col-xs-12 col-md-8" id="map"></div>
   <!-- twitter widget to view tweets on Earthquake -->
@@ -34,7 +28,7 @@
     <div class="container">
 
 
-    <p>All Earthquake Data are from  <a href="http://earthquake.usgs.gov/" target="_blank">USGS</a> ,Science for a changing world.
+    <p>All Earthquake Data are from  <a href="http://earthquake.usgs.gov/" target="_blank">USGS</a>, Science for a changing world.
     </p>
     <p>Do your part to make the world a better place!</p>
 
@@ -42,5 +36,19 @@
    </div>
 
   </footer>
+  </div>
 
+</div>
+
+
+<%- contentFor('topbuttons') %>
+
+
+<div class="pull-right" id="projectBox">
+
+<!-- push and pull -->
+
+  <a href="/captainplanets" class="btn btn-primary">View All Projects</a>
+  <a href="/users" class="btn btn-primary">View All Users</a>
+  <a href="/captainplanets?filter=true" class="btn btn-primary">View My Project</a>
 </div>
