@@ -66,11 +66,12 @@ function eqfeed_callback(results) {
     var markerCoordsTitle = results.features[i].properties.title; //title
     var markerCoordsTime = results.features[i].properties.time; //time
 
-
+    // var iconBase = 'https://maps.google.com/mapfiles/kml/shapes/'; //Not working.
     var marker = new google.maps.Marker({
       position: latLng,
       // title: markerCoordsTitle,
       content: markerCoordsTitle,
+      // icon: iconBase + 'http://www.freeiconspng.com/uploads/helicopter-icon-8.png', //not working.
       map:map
     });
 
