@@ -22,9 +22,17 @@ font-size: 30px;
 
 
 #currentDate{
-
   color: black;
 }
+
+#siteTitle{
+  color: black;
+}
+
+/*#loginBox{
+  color: black;
+border: 1px black;
+}*/
 
 #projectBox{
   /*float:right;*/
@@ -36,4 +44,8 @@ font-size: 30px;
 
 #siteTitle{
   /*float:left;*/
+}
+
+.pull-right {
+  float: right !important;
 }

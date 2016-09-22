@@ -13,8 +13,8 @@ function initialize() {
     mapTypeId: 'terrain',
     zoomControl: true,
     zoomControlOptions: {
-    position: google.maps.ControlPosition.LEFT_TOP
-},
+      position: google.maps.ControlPosition.LEFT_TOP
+    },
   };
 
   map = new google.maps.Map(document.getElementById('map'),
@@ -33,23 +33,23 @@ function initialize() {
   }
 
   var drawingManager =  new google.maps.drawing.DrawingManager({
-      drawingMode: google.maps.drawing.OverlayType.MARKER,
-      drawingControl: true,
-      drawingControlOptions: {
-        position: google.maps.ControlPosition.TOP_RIGHT,
-        drawingModes: ['marker', 'polygon', 'rectangle']
-      },
-      markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
-      circleOptions: {
-        fillColor: '#ffff00',
-        fillOpacity: 1,
-        strokeWeight: 5,
-        clickable: false,
-        editable: true,
-        zIndex: 1
-      }
-    });
-    drawingManager.setMap(map);
+    drawingMode: google.maps.drawing.OverlayType.MARKER,
+    drawingControl: true,
+    drawingControlOptions: {
+      position: google.maps.ControlPosition.TOP_RIGHT,
+      drawingModes: ['marker', 'polygon', 'rectangle']
+    },
+    markerOptions: {icon: 'https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png'},
+    circleOptions: {
+      fillColor: '#ffff00',
+      fillOpacity: 1,
+      strokeWeight: 5,
+      clickable: false,
+      editable: true,
+      zIndex: 1
+    }
+  });
+  drawingManager.setMap(map);
 
 
 }
@@ -62,6 +62,27 @@ function eqfeed_callback(results) {
     var coords = results.features[i].geometry.coordinates;
     var latLng = new google.maps.LatLng(coords[1], coords[0]);
     //That array is then passed to the HeatmapLayer constructor, which creates the heatmap and displays it on the map.
+
+    var markerCoordsTitle = results.features[i].properties.title; //title
+    var markerCoordsTime = results.features[i].properties.time; //time
+
+
+    var marker = new google.maps.Marker({
+      position: latLng,
+      // title: markerCoordsTitle,
+      content: markerCoordsTitle,
+      map:map
+    });
+
+    var infowindow = new google.maps.InfoWindow({
+      content: markerCoordsTitle +  markerCoordsTime , //should display accoridng to the loop? converting seconds into string.
+      maxWidth:200
+    });
+
+
+    google.maps.event.addListener(marker, "mouseover", function() {
+      infowindow.open(map, this);
+    });
 
     var magnitude = results.features[i].properties.mag;
     var weightedLoc = {

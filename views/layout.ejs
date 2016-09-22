@@ -19,26 +19,27 @@
 <body>
   <div class="container">
     <a href="/"><h1 id="siteTitle">Captain Planet! </h1>  </a>
-<div id="currentDate"></div>
+      <div id="currentDate"></div>
 
+      <div id="loginBox" class="pull-right">
+        <% if (!currentUser) { %>
+          <a href="/auth/signup">Signup</a>
+          <a href="/auth/login">Login</a>
+          <% } else { %>
+            <h3><%= currentUser.name %></h3>
+            <a href="/auth/logout">Logout</a>
+            <% } %>
+            <% include partials/alerts %>
+        </div>
 
-    <div id="loginBox">
-      <% if (!currentUser) { %>
-        <a href="/auth/signup">Signup</a>
-        <a href="/auth/login">Login</a>
-        <% } else { %>
-          <h3><%= currentUser.name %></h3>
-          <a href="/auth/logout">Logout</a>
-          <% } %>
-          <% include partials/alerts %>
-          <%- body %>
+        <%- body %>
       </div>
 
-        <!-- jQuery -->
-        <script src="//code.jquery.com/jquery.js"></script>
-        <!-- Bootstrap JavaScript -->
-        <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-        <script src="/js/script.js"></script>
-        <script src="/js/gettingTodayDate.js"></script>
-      </body>
-      </html>
+    <!-- jQuery -->
+    <script src="//code.jquery.com/jquery.js"></script>
+    <!-- Bootstrap JavaScript -->
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="/js/script.js"></script>
+    <script src="/js/gettingTodayDate.js"></script>
+  </body>
+  </html>
