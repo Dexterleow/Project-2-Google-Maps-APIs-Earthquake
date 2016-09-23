@@ -22,7 +22,7 @@ function initialize() {
   // Create a <script> tag and set the USGS URL as the source.
   var script = document.createElement('script');
   //M2.5_Earthquake in the past 7 days.
-  script.src = 'http://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
+  script.src = 'https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/2.5_week.geojsonp';
   document.getElementsByTagName('head')[0].appendChild(script);
 
   function eqfeed_callback(response) {
@@ -70,7 +70,7 @@ function eqfeed_callback(results) {
       // title: markerCoordsTitle,
       content: markerCoordsTitle,
       time: markerDateFormat,
-      opacity: 1,
+      // opacity: 1,
       map:map
     });
 
