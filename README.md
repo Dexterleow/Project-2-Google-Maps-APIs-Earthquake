@@ -12,9 +12,9 @@ Twitter, Google Maps & USGS.
 
 Screenshot:
 
-![alt text](https://github.com/Dexterleow/Project-2-Google-Maps-APIs-Earthquake/public/img/Preview1.png "Preview1")
+![alt text](/public/img/Preview1.png?raw=true "Preview 1")
 
-![alt text](https://github.com/Dexterleow/Project-2-Google-Maps-APIs-Earthquake/public/img/Preview2.png "Preview2")
+![alt text](public/img/Preview2.png?raw=true "Preview 2")
 
 ![alt text](https://github.com/Dexterleow/Project-2-Google-Maps-APIs-Earthquake/public/img/Preview3.png "Preview3")
 
