@@ -49,4 +49,4 @@ However, this live version has some bugs:
 
 1.Google Map is unable to rendered unless a user has signed in.
 
-2.An internal server error will occurred when users try to create their own humanitarian projects.
+2.An internal server error will occurred when users try to create their own humanitarian projects. 
